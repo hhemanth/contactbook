@@ -2,9 +2,10 @@
 lock "~> 3.10.2"
 
 set :application, "contactbook"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :repo_url, "git@github.com:me/hhemanth/contactbook.git"
 
-set :deploy_to, '/var/www/myapp'
+
+set :deploy_to, '/home/ec2-user/contactbook'
 set :log_level, :debug
  
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets}
