@@ -1,3 +1,21 @@
+# development.rb
+set :staging, :master
+set :unicorn_rack_env, "staging"
+set :rails_env, 'staging'
+set :migration_role, 'db'
+ 
+role :app, %w{ec2-54-235-229-183.compute-1.amazonaws.com} # Server IP Address
+role :web, %w{ec2-54-235-229-183.compute-1.amazonaws.com}
+role :db, %w{ec2-54-235-229-183.compute-1.amazonaws.com}
+ 
+set :ssh_options, {
+keys: [File.expand_path('~/keys/kanari-kp-2.pem')],
+forward_agent: true,
+auth_methods: %w(publickey)
+}
+ 
+server 'ec2-54-235-229-183.compute-1.amazonaws.com', user: 'ec2-user', roles: %w{web app db}
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

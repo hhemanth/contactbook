@@ -1,8 +1,17 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.10.2"
+set :default_environment, { 
+  'PATH' => "/home/ec2-user/.rvm/gems/ruby-2.4.1/bin:/home/ec2-user/.rvm/gems/ruby-2.4.1@global/bin:/home/ec2-user/.rvm/rubies/ruby-2.4.1/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/.nvm/versions/node/v6.11.5/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/aws/bin:/home/ec2-user/.local/bin:/home/ec2-user/bin:$PATH",
+  'RUBY_VERSION' => 'ruby 2.4.1',
+  'GEM_HOME' => '/home/ec2-user/.rvm/gems/ruby-2.4.1',
+  'GEM_PATH' => '/home/ec2-user/.rvm/gems/ruby-2.4.1' 
+}
+
+
+
 
 set :application, "contactbook"
-set :repo_url, "git@github.com:me/hhemanth/contactbook.git"
+set :repo_url, "git@github.com:hhemanth/contactbook.git"
 
 
 set :deploy_to, '/home/ec2-user/contactbook'
