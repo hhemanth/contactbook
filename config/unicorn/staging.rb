@@ -1,7 +1,7 @@
 working_directory File.expand_path("../../..", __FILE__)
 worker_processes 5
-listen "tmp/unicorn.sock"
+listen "tmp/sockets/unicorn.sock"
 timeout 30
-pid "tmp/unicorn.pid"
+pid "tmp/pids/unicorn.pid"
 stdout_path "log/unicorn.log"
 stderr_path "log/unicorn.log"
