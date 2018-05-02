@@ -3,7 +3,8 @@ set :staging, :master
 set :unicorn_rack_env, "staging"
 set :rails_env, 'staging'
 set :migration_role, 'db'
- 
+set :branch, "master"
+
 role :app, %w{ec2-54-235-229-183.compute-1.amazonaws.com} # Server IP Address
 role :web, %w{ec2-54-235-229-183.compute-1.amazonaws.com}
 role :db, %w{ec2-54-235-229-183.compute-1.amazonaws.com}

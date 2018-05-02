@@ -12,7 +12,7 @@ set :default_environment, {
 
 set :application, "contactbook"
 set :repo_url, "git@github.com:hhemanth/contactbook.git"
-
+set :branch, "master"
 
 set :deploy_to, '/home/ec2-user/contactbook'
 set :log_level, :debug
