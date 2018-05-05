@@ -24,7 +24,7 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 namespace :deploy do
  desc 'Restart application'
  task :restart do
- invoke 'unicorn:restart'
+ run 'sudo service unicorn.appr5 restart'
  end
 end
 after 'deploy:publishing', 'deploy:restart'
