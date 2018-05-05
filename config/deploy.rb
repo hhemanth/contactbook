@@ -6,10 +6,6 @@ set :default_environment, {
   'GEM_HOME' => '/home/ec2-user/.rvm/gems/ruby-2.4.1',
   'GEM_PATH' => '/home/ec2-user/.rvm/gems/ruby-2.4.1' 
 }
-
-
-
-
 set :application, "contactbook"
 set :repo_url, "git@github.com:hhemanth/contactbook.git"
 set :branch, "master"
@@ -23,8 +19,8 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 #set :bundle_env_variables, { ‘NOKOGIRI_USE_SYSTEM_LIBRARIES’ => 1 }
 namespace :deploy do
  desc 'Restart application'
- task :restart do
- run 'sudo service unicorn.appr5 restart'
+ task :restart, roles: :app, except: {no_release: true} do
+  run "sudo service unicorn.appr5 restart"
  end
 end
 after 'deploy:publishing', 'deploy:restart'
