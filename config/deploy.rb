@@ -19,8 +19,8 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 #set :bundle_env_variables, { ‘NOKOGIRI_USE_SYSTEM_LIBRARIES’ => 1 }
 namespace :deploy do
  desc 'Restart application'
- task :restart, roles: :app, except: {no_release: true} do
-  run "sudo service unicorn.appr5 restart"
+ task :restart do
+  invoke 'unicorn:restart'
  end
 end
 after 'deploy:publishing', 'deploy:restart'
